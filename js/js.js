@@ -8,7 +8,7 @@ const totalLectures = 6;
 const percentPerLecture = 100 / totalLectures;
 
 // استرجاع المحاضرات اللي حضرت قبل كده من localStorage
-let attendedLectures = JSON.parse(localStorage.getItem('attendedLectures')) || [];
+let attendedLectures = JSON.parse(localStorage.getItem('attendedLectures_site1da')) || [];
 
 // تحديث البار بناءً على المحاضرات المحفوظة
 progressBar.style.width = (attendedLectures.length * percentPerLecture) + "%";
@@ -21,8 +21,9 @@ document.querySelectorAll('.morede').forEach(link => {
         // لو المحاضرة دي مش موجودة في الـ attendedLectures
         if (!attendedLectures.includes(lecNum)) {
             attendedLectures.push(lecNum);
-            localStorage.setItem('attendedLectures', JSON.stringify(attendedLectures));
+            localStorage.setItem('attendedLectures_site1da', JSON.stringify(attendedLectures));
             progressBar.style.width = (attendedLectures.length * percentPerLecture) + "%";
+
         }
     });
 });
